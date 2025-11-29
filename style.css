@@ -1,0 +1,499 @@
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #0056b3;
+    --text-color: #333;
+    --bg-color: #f4f7f6;
+    --glass-color: rgba(255, 255, 255, 0.15);
+    --border-radius: 12px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Dùng Inter cho Landing Page, Roboto cho Trang chủ */
+    font-family: 'Inter', sans-serif; 
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.main-header {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.main-header .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.main-header .logo {
+    color: var(--primary-color);
+    font-size: 1.8em;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.main-nav ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.section-intro {
+    padding: 40px 0;
+}
+
+.profile-info {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.description h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.section-news {
+    padding: 40px 0;
+}
+
+iframe {
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Footer chung */
+.main-footer {
+    background-color: var(--text-color);
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.social-links a {
+    margin-left: 15px;
+}
+.social-links img {
+    filter: invert(1); /* Biến icon thành màu trắng */
+}
+
+
+/* --- CSS BÀI 01: LANDING PAGE (GLASSMORHPISM & RESPONSIVE) --- */
+/* Header & Glassmorphism & Sticky */
+.product-header {
+    position: sticky; 
+    top: 0;
+    z-index: 100;
+    padding: 15px 0;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    
+    /* Glassmorphism */
+    background-color: var(--glass-color); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.product-header.scrolled {
+    background-color: var(--primary-color); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    backdrop-filter: none;
+}
+.product-header.scrolled .logo-product, .product-header.scrolled .nav-list a {
+    color: white;
+}
+
+.logo-product {
+    font-size: 1.8em;
+    font-weight: 800;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+.product-nav .nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.product-nav .nav-list li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s; 
+    border-radius: 8px;
+}
+
+.product-nav .nav-list li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--primary-color);
+}
+
+.hamburger-menu {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+/* Hero Section (Sử dụng CSS Grid) */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-text h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #ffc107;
+    color: var(--text-color);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+    background-color: #e0a800;
+    transform: translateY(-3px); 
+}
+
+.main-product-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Features Section (Sử dụng CSS Grid) */
+.features-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: var(--secondary-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+}
+
+.feature-item {
+    padding: 25px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0; /* Cho Animation JS */
+    transform: translateY(20px); /* Cho Animation JS */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.feature-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* Gallery Section (Sử dụng CSS Flexbox) */
+.gallery-section {
+    padding: 60px 0;
+}
+
+.gallery-content {
+    display: flex;
+    gap: 20px;
+}
+
+#main-product-display {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px; 
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: border-color 0.3s, opacity 0.3s;
+}
+
+.thumbnail:hover, .thumbnail.active {
+    border-color: var(--primary-color);
+    opacity: 0.9;
+}
+
+
+/* --- RESPONSIVE BÀI 01 VÀ INDEX.HTML --- */
+
+/* Tablet (<= 768px) */
+@media (max-width: 768px) {
+    /* Index.html */
+    .main-footer .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Bai01.html */
+    .product-nav {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .product-nav .nav-list {
+        display: none; 
+        flex-direction: column;
+        position: absolute;
+        top: 60px; 
+        right: 20px;
+        background-color: white;
+        min-width: 200px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+    .product-nav .nav-list li a {
+        padding: 10px 20px;
+        color: var(--text-color);
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr; 
+        text-align: center;
+    }
+    .hero-image {
+        order: -1; 
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .gallery-content {
+        flex-direction: column;
+    }
+    .thumbnail-container {
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .thumbnail {
+        width: 100px; 
+    }
+}
+
+/* Mobile (<= 480px) */
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr; 
+    }
+    .hero-text h2 {
+        font-size: 2.2em;
+    }
+}
+
+
+.game-section {
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 500px;
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+#guessInput {
+    flex-grow: 1;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+}
+
+#checkButton, #resetButton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+#checkButton {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#checkButton:hover {
+    background-color: var(--secondary-color);
+}
+
+.message {
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+.message.warning {
+    background-color: #fff3cd;
+    color: #856404;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+
+/* Confetti Animation */
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+#confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#confetti-container.active::before,
+#confetti-container.active::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    opacity: 0; 
+    animation: confetti-fall 5s infinite; 
+}
+
+#confetti-container.active::before {
+    left: 10%;
+    background: #ff00ff;
+    box-shadow: 
+        100px 50px 0 #00ffff,
+        -50px 150px 0 #ffaa00,
+        200px 20px 0 #00ff00,
+        -150px 100px 0 #ffff00;
+    opacity: 1;
+}
+
+#confetti-container.active::after {
+    left: 90%;
+    background: #00ff00;
+    animation-delay: 1s;
+    box-shadow: 
+        -100px 50px 0 #ffaa00,
+        50px 150px 0 #ff00ff,
+        -200px 20px 0 #ffff00,
+        150px 100px 0 #00ffff;
+    opacity: 1;
+}
