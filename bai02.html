@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Đoán Số</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="container">
+        <section class="game-section">
+            <h2>🎮 Game Đoán Số Bí Mật</h2>
+            <p>Hãy đoán một số ngẫu nhiên nằm trong khoảng **50 đến 150**.</p>
+            
+            <div class="input-area">
+                <input type="number" id="guessInput" min="50" max="150" placeholder="Nhập số của bạn...">
+                <button id="checkButton">Đoán</button>
+            </div>
+
+            <div id="resultMessage" class="message"></div>
+            <p>Số lần thử: <span id="attemptCount">0</span></p>
+
+            <button id="resetButton" style="display: none;">Chơi Lại</button>
+        </section>
+    </main>
+    
+    <div id="confetti-container"></div> 
+
+    <script src="js/main.js"></script>
+    <script>
+        // Gọi hàm khởi tạo game sau khi DOM đã tải, đảm bảo các phần tử game được tìm thấy
+        if (typeof initializeGuessingGame === 'function') {
+            initializeGuessingGame();
+        }
+    </script>
+</body>
+</html>
